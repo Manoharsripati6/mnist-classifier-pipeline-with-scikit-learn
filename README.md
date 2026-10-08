@@ -11,7 +11,7 @@ python scaffold.py
 ## Steps
 
 - [x] **1.** load_mnist
-- [ ] **2.** binary_target
+- [x] **2.** binary_target
 - [ ] **3.** train_sgd
 - [ ] **4.** cross_val_predictions
 - [ ] **5.** confusion_counts
