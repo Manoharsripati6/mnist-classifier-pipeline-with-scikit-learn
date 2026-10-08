@@ -12,7 +12,7 @@ python scaffold.py
 
 - [x] **1.** load_mnist
 - [x] **2.** binary_target
-- [ ] **3.** train_sgd
+- [x] **3.** train_sgd
 - [ ] **4.** cross_val_predictions
 - [ ] **5.** confusion_counts
 - [ ] **6.** precision_recall_f1

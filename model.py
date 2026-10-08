@@ -42,8 +42,13 @@ def binary_target(y, digit=5):
         else:y[i]=False
     return np.array(y)
 
-# Step 3 - train_sgd (not yet solved)
-# TODO: implement
+# Step 3 - train_sgd
+from sklearn.linear_model import SGDClassifier
+def train_sgd(X, y, random_state=42):
+    # TODO: fit and return SGDClassifier(random_state=random_state).
+    model=SGDClassifier(random_state=random_state)
+    model.fit(X,y)
+    return model
 
 # Step 4 - cross_val_predictions (not yet solved)
 # TODO: implement
