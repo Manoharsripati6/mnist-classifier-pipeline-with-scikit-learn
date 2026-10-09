@@ -98,8 +98,18 @@ def threshold_for_precision(y_true, scores, target=0.90):
     # np.argmax returns the index of the first True occurrence
     return float(thresholds[np.argmax(precisions >= target)])
 
-# Step 8 - evaluate_at_threshold (not yet solved)
-# TODO: implement
+# Step 8 - evaluate_at_threshold
+def evaluate_at_threshold(y_true, scores, threshold):
+    # TODO: predictions = scores >= threshold; dict with precision, recall, f1, positives.
+    
+    pos= np.asarray(scores) >= threshold
+    p,r,f1=precision_recall_f1(y_true,pos)
+    return {
+        'precision':p, 
+        'recall': r,
+        'f1': f1, 
+        'positives': int(pos.sum())
+        }
 
 # Step 9 - roc_auc (not yet solved)
 # TODO: implement
