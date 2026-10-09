@@ -121,8 +121,18 @@ def roc_auc(y_true, scores):
     idx = np.argmax(tpr >= 0.9)
     return {'auc': auc, 'fpr_at_recall_90': float(fpr[idx])}
 
-# Step 10 - multiclass_pipeline (not yet solved)
-# TODO: implement
+# Step 10 - multiclass_pipeline
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import SGDClassifier
+def multiclass_pipeline(random_state=42):
+    # TODO: make_pipeline(StandardScaler(), SGDClassifier(random_state=random_state))
+    return Pipeline(
+        [
+            ("standardscaler",StandardScaler()),
+            ("sgdclassifier",SGDClassifier(random_state=random_state))
+        ]
+    )
 
 # Step 11 - multiclass_cv_accuracy (not yet solved)
 # TODO: implement
