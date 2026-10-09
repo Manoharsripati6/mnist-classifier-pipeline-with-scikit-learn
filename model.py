@@ -154,8 +154,17 @@ def normalized_confusion(y_true, y_pred):
         y_true, y_pred, labels=list(range(10)), normalize="true"
     )
 
-# Step 13 - most_confused_pairs (not yet solved)
-# TODO: implement
+# Step 13 - most_confused_pairs
+def most_confused_pairs(cm, k=3):
+    # TODO: top-k off-diagonal (true, predicted, rate) tuples, rate rounded to 3 decimals.
+    pairs = []
+    for i in range(cm.shape[0]):
+        for j in range(cm.shape[1]):
+            if i != j:
+                pairs.append((i, j, round(float(cm[i, j]), 3)))
+
+    pairs.sort(key=lambda x: x[2], reverse=True)
+    return pairs[:k]
 
 # Step 14 - multilabel_targets (not yet solved)
 # TODO: implement
