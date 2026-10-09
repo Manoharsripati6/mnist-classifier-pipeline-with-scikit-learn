@@ -134,8 +134,17 @@ def multiclass_pipeline(random_state=42):
         ]
     )
 
-# Step 11 - multiclass_cv_accuracy (not yet solved)
-# TODO: implement
+# Step 11 - multiclass_cv_accuracy
+from sklearn.model_selection import cross_val_score
+def multiclass_cv_accuracy(model, X, y, cv=3):
+    # TODO: mean cross_val_score accuracy as a float.
+    return float(cross_val_score(
+        model,
+        X,
+        y,
+        cv=cv
+        ,scoring="accuracy"
+    ).mean())
 
 # Step 12 - normalized_confusion (not yet solved)
 # TODO: implement
