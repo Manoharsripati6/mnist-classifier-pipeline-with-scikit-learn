@@ -111,8 +111,15 @@ def evaluate_at_threshold(y_true, scores, threshold):
         'positives': int(pos.sum())
         }
 
-# Step 9 - roc_auc (not yet solved)
-# TODO: implement
+# Step 9 - roc_auc
+from sklearn.metrics import roc_auc_score, roc_curve
+
+def roc_auc(y_true, scores):
+    # TODO: {'auc': roc_auc_score, 'fpr_at_recall_90': fpr at the first tpr >= 0.9}.
+    auc=roc_auc_score(y_true,scores)
+    fpr, tpr, _ = roc_curve(y_true, scores)
+    idx = np.argmax(tpr >= 0.9)
+    return {'auc': auc, 'fpr_at_recall_90': float(fpr[idx])}
 
 # Step 10 - multiclass_pipeline (not yet solved)
 # TODO: implement
