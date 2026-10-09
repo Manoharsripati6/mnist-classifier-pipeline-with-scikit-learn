@@ -89,8 +89,14 @@ def precision_recall_f1(y_true, y_pred):
         f1
     )
 
-# Step 7 - threshold_for_precision (not yet solved)
-# TODO: implement
+# Step 7 - threshold_for_precision
+from sklearn.metrics import precision_recall_curve
+def threshold_for_precision(y_true, scores, target=0.90):
+    # TODO: precision_recall_curve; first threshold whose precision >= target.
+    precisions, recalls, thresholds = precision_recall_curve(y_true, scores)
+    
+    # np.argmax returns the index of the first True occurrence
+    return float(thresholds[np.argmax(precisions >= target)])
 
 # Step 8 - evaluate_at_threshold (not yet solved)
 # TODO: implement
