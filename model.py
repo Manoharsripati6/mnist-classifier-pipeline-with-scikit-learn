@@ -183,8 +183,11 @@ def multilabel_knn(X, Y, n_neighbors=5):
 def multilabel_f1(Y_true, Y_pred):
     return float(f1_score(Y_true, Y_pred, average="macro"))
 
-# Step 16 - final_test_accuracy (not yet solved)
-# TODO: implement
+# Step 16 - final_test_accuracy
+from sklearn.metrics import accuracy_score
+
+def final_test_accuracy(model, X_test, y_test):
+    return float(accuracy_score(y_test, model.predict(X_test)))
 
 # Step 17 - save_and_reload_classifier (not yet solved)
 # TODO: implement
