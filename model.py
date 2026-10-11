@@ -166,11 +166,22 @@ def most_confused_pairs(cm, k=3):
     pairs.sort(key=lambda x: x[2], reverse=True)
     return pairs[:k]
 
-# Step 14 - multilabel_targets (not yet solved)
-# TODO: implement
+# Step 14 - multilabel_targets
+def multilabel_targets(y):
+    # TODO: (n, 2) boolean array: [y >= 7, y is odd].
+    return np.column_stack((y >= 7, y % 2 == 1))
 
-# Step 15 - multilabel_knn (not yet solved)
-# TODO: implement
+# Step 15 - multilabel_knn
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import f1_score
+
+def multilabel_knn(X, Y, n_neighbors=5):
+    clf = KNeighborsClassifier(n_neighbors=n_neighbors)
+    clf.fit(X, Y)
+    return clf
+
+def multilabel_f1(Y_true, Y_pred):
+    return float(f1_score(Y_true, Y_pred, average="macro"))
 
 # Step 16 - final_test_accuracy (not yet solved)
 # TODO: implement
